@@ -56,11 +56,16 @@ async function scanPage () {
   if (!state) return
   const token = await sendBackground({ action: 'getToken' })
   // 列表容器
-  const listContainer = document.getElementsByClassName('virtual-tree-list-scroll-container')[0]
+  // const listContainer = document.getElementsByClassName('virtual-tree-list-scroll-container')[0]
+  const listContainer = document.getElementsByClassName('fui-TreeItem')[0]
   // 聊天列表
-  const list = listContainer.querySelectorAll('div[role="none"].ui-tree__item')
+  // const list = listContainer.querySelectorAll('div[role="none"].ui-tree__item')
+  const list = listContainer.querySelectorAll('[id*="title-chat-list-item_"]')
   for (const element of list) {
-    const userId = element.id
+    // const userId = element.id
+    const userId = element.id.replace('title-chat-list-item_', '')
+    console.log(userId)
+
     try {
       // 删除对话信息
       await fetch(`https://teams.live.com/api/groups/v1/threads/${userId}`, {

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Teams 清理账号",
   "description": "删除所有记录",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Raz1ner",
   "icons": {
     "128": "icon.png"
